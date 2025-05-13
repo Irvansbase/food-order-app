@@ -95,7 +95,7 @@ main {
   height: 800px;
   min-height: 100vh; /* Ganti height fixed */
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 .card {
