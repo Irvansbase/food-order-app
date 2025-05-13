@@ -91,39 +91,42 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  height: 800px;
-  min-height: 100vh; /* Ganti height fixed */
-  padding: 30px;
+  align-items: flex-start; /* Changed from center to prevent stretching */
+  min-height: 100vh;
+  padding: 20px;
+  gap: 20px; /* Better than individual margins */
 }
 
 .card {
-  flex: 0 0 calc(25% - 30px); /* 4 kartu per baris, kurangi sedikit untuk gap */
+  flex: 1 1 calc(25% - 20px); /* 4 cards per row on large screens */
+  min-width: 250px; /* Minimum card width */
+  max-width: 350px; /* Maximum card width */
   background: #f0f0f0;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  margin: 50px 20px 20px 20px;
+  margin-bottom: 20px; /* Only bottom margin needed with gap */
 }
 
-.parent-img{
+.parent-img {
   display: flex;
   justify-content: center;
+  overflow: hidden; /* For hover zoom effect */
+  border-radius: 3%;
 }
+
 .img {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   border-radius: 3%;
   background-size: cover;
-  transition: 0.5s;
-    width: 300px;
+  transition: transform 0.5s ease;
+  width: 100%;
   height: 200px;
-  max-height: 300px;
   object-fit: cover;
 }
 
 .img:hover {
- transform: scale(1.2);
- transition: 0.5s;
+  transform: scale(1.1);
 }
 
 .text-content {
@@ -131,7 +134,7 @@ main {
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  padding: 10px 10px;
+  padding: 10px;
   background-color: bisque;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -144,56 +147,37 @@ main {
   border-radius: 999px;
   background-color: yellowgreen;
   color: rgb(103, 2, 2);
-  transition: 0.5s;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .checkout:hover {
   color: black;
   background-color: rgb(186, 238, 53);
-  transition: 0.5s;
 }
 
-/* Mobile S (320px - 480px) */
-@media only screen and (max-width: 480px) {
-  main {
-    flex-direction: column;
-  }
+/* Responsive adjustments */
+@media (max-width: 1200px) {
   .card {
-    flex: 0 0 100%;
-    margin: 10px 0;
+    flex: 1 1 calc(33.333% - 20px); /* 3 cards per row */
   }
+}
+
+@media (max-width: 900px) {
+  .card {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 100%; /* 1 card per row */
+    max-width: 100%;
+  }
+  
   .img {
-    width: 100%;
-    height: auto;
+    height: 250px; /* Slightly taller images on mobile */
   }
 }
-
-/* Mobile M (481px - 767px) */
-@media only screen and (max-width: 767px) {
-  .card {
-    flex: 0 0 calc(100% - 40px); /* Satu kartu per baris */
-  }
-}
-
-/* Tablet (768px - 1024px) */
-@media only screen and (max-width: 1024px) {
-  .card {
-    flex: 0 0 calc(50% - 40px); /* Dua kartu per baris */
-  }
-}
-
-/* Desktop (1025px - 1440px) */
-@media only screen and (max-width: 1440px) {
-  .card {
-    flex: 0 0 calc(33.33% - 40px); /* Tiga kartu per baris */
-  }
-}
-
-/* Large Screen (1441px and above) */
-@media only screen and (min-width: 1441px) {
-  .card {
-    flex: 0 0 calc(25% - 40px); /* Empat kartu per baris */
-  }
-}
-
 </style>
