@@ -174,25 +174,4 @@ body {
   }
 }
 
-/* Tablet (768px - 1024px) */
-@media only screen and (max-width: 1024px) {
-  .cart-modal {
-    width: 400px;
-  }
-}
-
-/* Desktop (1025px - 1200px) */
-@media only screen and (max-width: 1200px) {
-  .cart-modal {
-    width: 350px;
-  }
-}
-
-/* Large Screen (1200px and above) */
-@media only screen and (min-width: 1200px) {
-  .cart-modal {
-    width: 300px;
-  }
-}
-
 </style>

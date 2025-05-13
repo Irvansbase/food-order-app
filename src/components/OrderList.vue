@@ -94,7 +94,8 @@ main {
   align-items: center;
   height: 800px;
   min-height: 100vh; /* Ganti height fixed */
-  padding: 30px;
+  padding: 20px;
+  margin-top: 50px;
 }
 
 .card {
