@@ -165,4 +165,10 @@ main {
     flex: 0 0 calc(50% - 20px);
   }
 }
+
+@media (max-width: 480px) {
+  main {
+    margin-top: 80px;
+  }
+}
 </style>
