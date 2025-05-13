@@ -91,42 +91,39 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start; /* Changed from center to prevent stretching */
-  min-height: 100vh;
-  padding: 20px;
-  gap: 20px; /* Better than individual margins */
+  align-items: center;
+  height: 800px;
+  min-height: 100vh; /* Ganti height fixed */
+  padding: 30px;
 }
 
 .card {
-  flex: 1 1 calc(25% - 20px); /* 4 cards per row on large screens */
-  min-width: 250px; /* Minimum card width */
-  max-width: 350px; /* Maximum card width */
+  flex: 0 0 calc(25% - 30px); /* 4 kartu per baris, kurangi sedikit untuk gap */
   background: #f0f0f0;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px; /* Only bottom margin needed with gap */
+  margin: 30px 20px 20px 20px;
 }
 
-.parent-img {
+.parent-img{
   display: flex;
   justify-content: center;
-  overflow: hidden; /* For hover zoom effect */
-  border-radius: 3%;
 }
-
 .img {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   border-radius: 3%;
   background-size: cover;
-  transition: transform 0.5s ease;
-  width: 100%;
+  transition: 0.5s;
+    width: 300px;
   height: 200px;
+  max-height: 300px;
   object-fit: cover;
 }
 
 .img:hover {
-  transform: scale(1.1);
+ transform: scale(1.2);
+ transition: 0.5s;
 }
 
 .text-content {
@@ -134,7 +131,7 @@ main {
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  padding: 10px;
+  padding: 10px 10px;
   background-color: bisque;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
@@ -147,37 +144,24 @@ main {
   border-radius: 999px;
   background-color: yellowgreen;
   color: rgb(103, 2, 2);
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
+  transition: 0.5s;
 }
 
 .checkout:hover {
   color: black;
   background-color: rgb(186, 238, 53);
+  transition: 0.5s;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .card {
-    flex: 1 1 calc(33.333% - 20px); /* 3 cards per row */
+    flex: 0 0 calc(33.33% - 20px);
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .card {
-    flex: 1 1 calc(50% - 20px); /* 2 cards per row */
-  }
-}
-
-@media (max-width: 600px) {
-  .card {
-    flex: 1 1 100%; /* 1 card per row */
-    max-width: 100%;
-  }
-  
-  .img {
-    height: 250px; /* Slightly taller images on mobile */
+    flex: 0 0 calc(50% - 20px);
   }
 }
 </style>
